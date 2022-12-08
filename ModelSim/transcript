@@ -1,0 +1,116 @@
+# Compile of timer.vhd failed with 5 errors.
+# Compile of timer.vhd was successful.
+vsim -gui work.timer
+# vsim -gui work.timer 
+# Start time: 21:13:30 on Dec 08,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.timer(rtl)
+add wave -position insertpoint sim:/timer/*
+force -freeze sim:/timer/clk 1 0, 0 {50 ps} -r 100
+noforce sim:/timer/sensor
+noforce sim:/timer/switch
+run
+run
+force -freeze sim:/timer/sensor 0 0
+force -freeze sim:/timer/switch 0 0
+run
+run
+force -freeze sim:/timer/sensor 1 0
+run
+run
+force -freeze sim:/timer/sensor 0 0
+force -freeze sim:/timer/switch 1 0
+run
+run
+force -freeze sim:/timer/sensor 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/timer/sensor 0 0
+run
+run
+force -freeze sim:/timer/sensor 1 0
+run
+run
+run
+run
+# Compile of timer.vhd was successful.
+add wave -position insertpoint sim:/timer/*
+vsim -gui work.timer
+# End time: 21:16:48 on Dec 08,2022, Elapsed time: 0:03:18
+# Errors: 0, Warnings: 4
+# vsim -gui work.timer 
+# Start time: 21:16:48 on Dec 08,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.timer(rtl)
+add wave -position insertpoint sim:/timer/*
+force -freeze sim:/timer/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/timer/sensor 1 0
+force -freeze sim:/timer/switch 1 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+force -freeze sim:/timer/switch 0 0
+run
+run
+force -freeze sim:/timer/switch 1 0
+run
+run
+# Compile of timer.vhd was successful.
+vsim -gui work.timer
+# End time: 21:19:52 on Dec 08,2022, Elapsed time: 0:03:04
+# Errors: 0, Warnings: 2
+# vsim -gui work.timer 
+# Start time: 21:19:52 on Dec 08,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.timer(rtl)
+add wave -position insertpoint sim:/timer/*
+force -freeze sim:/timer/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/timer/sensor 1 0
+force -freeze sim:/timer/switch 1 0
+run
+run
+run
+run
+run
+force -freeze sim:/timer/switch 0 0
+run
+run
+force -freeze sim:/timer/switch 1 0
+run
+run
+run
+force -freeze sim:/timer/sensor 0 0
+run
+run
+force -freeze sim:/timer/sensor 1 0
+run
+run
