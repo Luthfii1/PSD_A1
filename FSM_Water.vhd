@@ -94,49 +94,48 @@ BEGIN
     BEGIN
         CASE current_state IS
             WHEN ST0 => W <= "00" -- Tidak Keluar Air
-                AND sseg <= "000"
-        END IF;
+                AND sseg <= "000";
+            END IF;
 
-        WHEN ST1 =>
-        IF (inner_output = "001") THEN
-            W <= "01"; -- Air Dingin
-            sseg <= "001";
-        ELSIF (inner_output = "010") THEN
-            W <= "10"; -- Air Normal
-            sseg <= "010";
-        ELSIF (inner_output = "011") THEN
-            W <= "11"; -- Air Panas
-            sseg <= "011";
-        END IF;
+            WHEN ST1 =>
+                IF (inner_output = "001") THEN
+                    W <= "01"; -- Air Dingin
+                    sseg <= "001";
+                ELSIF (inner_output = "010") THEN
+                    W <= "10"; -- Air Normal
+                    sseg <= "010";
+                ELSIF (inner_output = "011") THEN
+                    W <= "11"; -- Air Panas
+                    sseg <= "011";
+            END IF;
 
-        WHEN ST2 =>
-        IF (inner_output = "001") THEN
-            W <= "01"; -- Air Dingin
-            sseg <= "001";
-        ELSIF (inner_output = "010") THEN
-            W <= "10"; -- Air Normal
-            sseg <= "010";
-        ELSIF (inner_output = "011") THEN
-            W <= "11"; -- Air Panas
-            sseg <= "011";
-        END IF;
+            WHEN ST2 =>
+                IF (inner_output = "001") THEN
+                    W <= "01"; -- Air Dingin
+                    sseg <= "001";
+                ELSIF (inner_output = "010") THEN
+                    W <= "10"; -- Air Normal
+                    sseg <= "010";
+                ELSIF (inner_output = "011") THEN
+                    W <= "11"; -- Air Panas
+                    sseg <= "011";
+            END IF;
 
-        WHEN ST3 =>
-        IF (inner_output = "001") THEN
-            W <= "01"; -- Air Dingin
-            sseg <= "001";
-        ELSIF (inner_output = "010") THEN
-            W <= "10"; -- Air Normal
-            sseg <= "010";
-        ELSIF (inner_output = "011") THEN
-            W <= "11"; -- Air Panas
-            sseg <= "011";
-        END IF;
+            WHEN ST3 =>
+                IF (inner_output = "001") THEN
+                    W <= "01"; -- Air Dingin
+                    sseg <= "001";
+                ELSIF (inner_output = "010") THEN
+                    W <= "10"; -- Air Normal
+                    sseg <= "010";
+                ELSIF (inner_output = "011") THEN
+                    W <= "11"; -- Air Panas
+                    sseg <= "011";
+            END IF;
 
-        WHEN ST4 => W <= "00" -- Tidak Keluar Air
-        AND sseg <= "000"
-    END IF;
-END CASE;
-END PROCESS;
-
+            WHEN ST4 => W <= "00" -- Tidak Keluar Air
+                AND sseg <= "000";  
+            END IF;
+        END CASE;
+    END PROCESS;s
 END behavioral;
