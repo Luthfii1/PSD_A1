@@ -18,6 +18,7 @@ entity timer is
     );
 end entity;
 
+-- Update
 -- architecture of timer
 architecture rtl of timer is
     constant reset_timer : integer := 0;  -- max value for timer is 7 seconds

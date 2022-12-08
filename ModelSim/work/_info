@@ -9,48 +9,201 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/ModelSim
+Ebcd_to_seven_segment
+w1670512517
+Z0 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z1 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 24
+Z2 dC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/ModelSim
+Z3 8C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd
+Z4 FC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd
+l0
+L8 1
+VZUHF2Sz53l]IoSiYkeWGK3
+!s100 @edHb_A7Ng8PQ`VIDhjKM2
+Z5 OV;C;2020.1;71
+32
+!s110 1670512522
+!i10b 1
+!s108 1670512522.000000
+Z6 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd|
+Z7 !s107 C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd|
+!i113 1
+Z8 o-work work -2002 -explicit
+Z9 tExplicit 1 CvgOpt 0
+Ebcdconverter
+Z10 w1670510193
+Z11 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
+Z12 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R0
+R1
+!i122 22
+R2
+Z13 8C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDConverter.vhd
+Z14 FC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDConverter.vhd
+l0
+L9 1
+VjKBO]llD_@3loR6j0BHAd2
+!s100 KFf4<3MSnKzm_oJ^zIUAX2
+R5
+32
+Z15 !s110 1670512424
+!i10b 1
+Z16 !s108 1670512424.000000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDConverter.vhd|
+Z18 !s107 C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDConverter.vhd|
+!i113 1
+R8
+R9
+Aconverter
+R11
+R12
+R0
+R1
+DEx4 work 12 bcdconverter 0 22 jKBO]llD_@3loR6j0BHAd2
+!i122 22
+l25
+L23 45
+V8nEHOU]Rm25FcjPDelcSD3
+!s100 dPbhdUb60YmmTHkKQY0j=2
+R5
+32
+R15
+!i10b 1
+R16
+R17
+R18
+!i113 1
+R8
+R9
+Ebcdtosevseg
+Z19 w1670513234
+R0
+R1
+!i122 26
+R2
+R3
+R4
+l0
+L8 1
+VF6<7BL<aZB6UQbQT]2ozX0
+!s100 ]m@;DmI2mPz;kLdP0DdF30
+R5
+32
+Z20 !s110 1670513241
+!i10b 1
+Z21 !s108 1670513241.000000
+R6
+R7
+!i113 1
+R8
+R9
+Artl
+R0
+R1
+DEx4 work 11 bcdtosevseg 0 22 F6<7BL<aZB6UQbQT]2ozX0
+!i122 26
+l17
+L16 21
+VL6PbJ=EkQ<bl0EVEfV3>H3
+!s100 bl0OdT4OgA;@6K;AfSHSB1
+R5
+32
+R20
+!i10b 1
+R21
+R6
+R7
+!i113 1
+R8
+R9
+Emaster_faucet
+Z22 w1670513758
+R11
+R12
+R0
+R1
+!i122 30
+R2
+Z23 8C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd
+Z24 FC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd
+l0
+L8 1
+VSdO;Rj^]Q^lYOD9n>9:lB1
+!s100 ]h4Ul4FJ0@?`mYnzK]C5j1
+R5
+32
+Z25 !s110 1670513765
+!i10b 1
+Z26 !s108 1670513765.000000
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd|
+!s107 C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd|
+!i113 1
+R8
+R9
+Artl
+R11
+R12
+R0
+R1
+DEx4 work 13 master_faucet 0 22 SdO;Rj^]Q^lYOD9n>9:lB1
+!i122 30
+l78
+L33 97
+V`_?gWPTVTJXB<b>5?mb7B0
+!s100 b7c[lImF<9j8M;WUHz7]13
+R5
+32
+R25
+!i10b 1
+R26
+R27
+Z28 !s107 C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd|
+!i113 1
+R8
+R9
 Etimer
-Z0 w1670509172
-Z1 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
-Z2 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 16
-Z5 dC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/ModelSim
-Z6 8C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd
-Z7 FC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd
+Z29 w1670511899
+R11
+R12
+R0
+R1
+!i122 21
+R2
+Z30 8C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd
+Z31 FC:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd
 l0
 L8 1
 VPWH606N8EUWZYOfYF]FCL3
 !s100 XhW5Innoc[`Ci5f2;@DTi2
-Z8 OV;C;2020.1;71
+R5
 32
-Z9 !s110 1670509178
+R15
 !i10b 1
-Z10 !s108 1670509178.000000
-Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd|
-Z12 !s107 C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd|
+R16
+Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd|
+Z33 !s107 C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd|
 !i113 1
-Z13 o-work work -2002 -explicit
-Z14 tExplicit 1 CvgOpt 0
-Artl
-R1
-R2
-R3
-R4
-DEx4 work 5 timer 0 22 PWH606N8EUWZYOfYF]FCL3
-!i122 16
-l26
-L22 34
-V=H[1A4nfIfW<SWX[hMXP_3
-!s100 217zMCC?7kBhF0llM7@VB0
 R8
-32
 R9
-!i10b 1
-R10
+Artl
 R11
 R12
+R0
+R1
+DEx4 work 5 timer 0 22 PWH606N8EUWZYOfYF]FCL3
+!i122 21
+l26
+L23 33
+VMNZ[WJ4<ZL1B1jT?]>c2H3
+!s100 OhSk4_IS`G_aQXO2^0l^70
+R5
+32
+R15
+!i10b 1
+R16
+R32
+R33
 !i113 1
-R13
-R14
+R8
+R9

@@ -9,12 +9,13 @@ use ieee.math_real.all;
 entity BCDConverter is
     port (
         -- Input that will be converted to BCD
-        binary_inp   : in std_logic_vector(7 downto 0);  -- Left bit is the MSB and the right bit is the LSB
-
+        counter_inp  : in std_logic_vector(7 downto 0);  -- Left bit is the MSB and the right bit is the LSB, counter_input to store the input value of the counter
+        timer_inp    : in std_logic_vector(3 downto 0);  -- timer_input to store the input value of the timer
         -- Output that will be converted to BCD
         MSD_out      : out std_logic_vector(3 downto 0); -- MSD_out to store binary value of most significant digit
         LSD_out      : out std_logic_vector(3 downto 0); -- LSD_out to store binary value of least significant digit
-        MMSD_out     : out std_logic_vector(3 downto 0) -- MMSD_out to store binary value of middle most significant digit
+        MMSD_out     : out std_logic_vector(3 downto 0); -- MMSD_out to store binary value of middle most significant digit
+        timer_out    : out std_logic_vector(3 downto 0) -- timer_out to store binary value of timer
     );
 end entity;
 
@@ -23,7 +24,7 @@ architecture Converter of BCDConverter is
     -- Code to convert binary to BCD
 begin
 
-    process (binary_inp)
+    process (counter_inp, timer_inp)
         variable temp : integer range 0 to 7 := 0;
         variable count_total : integer range 0 to 255 := 0;     -- Variable to count how many times fauced was used
         variable msd, lsd, mmsd : integer range 0 to 9 := 0;    -- Variables to store the digits, MSD for store the most significant digit, 
@@ -31,11 +32,13 @@ begin
                                                                 -- MMSD for store the middle most significant digit
     begin
 
+        timer_out <= timer_inp;                             -- Give the data from timer_inp to timer_out
+
         count_total := 0;                                       -- Initialize count_total to 0
         msd := 0;                                               -- Initialize msd to 0
         lsd := 0;                                               -- Initialize lsd to 0
         mmsd := 0;       
-        count_total := to_integer(unsigned(binary_inp));                                       -- Initialize mmsd to 0
+        count_total := to_integer(unsigned(counter_inp));       -- Initialize mmsd to 0
 
         -- Calculate the MSD
         -- input Number >= 100, will find the MSD
