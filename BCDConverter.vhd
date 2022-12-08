@@ -37,12 +37,6 @@ begin
         mmsd := 0;       
         count_total := to_integer(unsigned(binary_inp));                                       -- Initialize mmsd to 0
 
-        -- There's a problem when conveting using loop in index?
-        -- for i in 0 to 7 loop
-        --     if (binary_inp(i downto i)) then count_total := count_total + 2**i; end if; -- If the bit is i, add 2^i to count_total  
-        --     temp := temp + 1;                                   -- Increment temp
-        -- end loop;
-
         -- Calculate the MSD
         -- input Number >= 100, will find the MSD
         if (count_total >= 100) then
