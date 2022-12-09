@@ -22,7 +22,8 @@ entity master_faucet is
         LED_Red : out std_logic;                        -- LED red to show the water is hot
         LED_Green : out std_logic;                      -- LED green to show the water is default (netral)
         LED_Blue : out std_logic;                       -- LED blue to show the water is cold
-        water : out std_logic_vector(1 downto 0);                          -- Output as water flow
+        LED_White : out std_logic;                      -- LED white to show the water is off
+        water : out std_logic;                          -- Output as water flow
         SSD_MSD : out std_logic_vector(bit_SSD-1 downto 0);     -- SSD to show the number of hundred times
         SSD_LSD : out std_logic_vector(bit_SSD-1 downto 0);     -- SSD to show the number of one times
         SSD_MMSD : out std_logic_vector(bit_SSD-1 downto 0);    -- SSD to show the number of ten times
@@ -67,15 +68,18 @@ architecture rtl of master_faucet is
         );
     end component;
 
-    -- Component declaration of the FSM for Water
-    component FSM_Water is
-        port(
-            H : IN STD_LOGIC; -- Sensor Tangan
-            S : IN STD_LOGIC; -- Kran Air
-            Temp : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-            CLK : IN STD_LOGIC;
-            sseg : OUT STD_LOGIC_VECTOR (2 DOWNTO 0);
-            W : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+    -- Component declaration of the FSM for LED
+    component FSM_Temp is
+        port (
+            clk : IN STD_LOGIC;
+            reset : IN STD_LOGIC;
+            temp : in std_logic_vector(1 downto 0); -- "01" = cold, "10" = normal, "11" = hot
+
+            -- Outputs
+            red : out std_logic;    -- if temp is hot
+            green : out std_logic;  -- if temp is normal
+            blue : out std_logic; -- if temp is cold
+            white : out std_logic -- if temp is idle
         );
     end component;
 
@@ -85,8 +89,7 @@ architecture rtl of master_faucet is
     signal MSD_temp : std_logic_vector(3 downto 0);       -- MSD signal to store the value of most significant digit
     signal LSD_temp : std_logic_vector(3 downto 0);       -- LSD signal to store the value of least significant digit
     signal MMSD_temp : std_logic_vector(3 downto 0);      -- MMSD signal to store the value of middle most significant digit
-    signal H : std_logic := '0';
-    signal S : std_logic := '0';
+    signal reset : std_logic := '0';                      -- reset signal to reset the counter
 begin
 
     -- port mapping of timer
@@ -130,19 +133,32 @@ begin
         seg_out => SSD_Timer
     );
 
-    -- port mapping of FSM for Water
-    FSM : FSM_Water port map (
-        H => handSensor,
-        S => switchMaster,
-        Temp => suhu,
-        CLK => clock,
-        sseg => SSD,
-        W : water
+    hand_fsm : process (handSensor, switchMaster, clock)
+    begin
+        if (handSensor = '1' AND switchMaster = '1') then
+            reset <= '0';
+        end if;
+    end process;
+
+    -- port mapping of the FSM for Temperature
+    FSM_Temperature : FSM_Temp port map (
+        clk => clock,
+        reset => reset,
+        temp => suhu,
+        red => LED_Red,
+        green => LED_Green,
+        blue => LED_Blue,
+        white => LED_White
     );
 
-    -- Set Suhu to LED
-    LED_Red <= '1' when suhu = "11" else '0';           -- LED red to show the water is hot when suhu = 11
-    LED_Blue <= '1' when suhu = "10" else '0';          -- LED blue to show the water is cold when suhu = 10
-    LED_Green <= '1' when suhu = "01" else '0'; -- LED green to show the water is default (netral) when suhu = 01 or 00
+    -- Set water flow
+    my_timer : process (handSensor, switchMaster, clock)
+    begin
+        if (handSensor = '1' and switchMaster = '1') then
+            water <= '1';
+        else
+            water <= '0';
+        end if;
+    end process;
 
 end architecture;
