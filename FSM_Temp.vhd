@@ -6,10 +6,14 @@ ENTITY FSM_Temp IS
   PORT (
     clk : IN STD_LOGIC;
     reset : IN STD_LOGIC;
-    temp_hot : IN STD_LOGIC; 
-    temp_cold : IN STD_LOGIC; 
-    temp_normal : IN STD_LOGIC; 
-    output : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)); -- "01" = cold, "10" = normal, "11" = hot
+    temp : in std_logic_vector(1 downto 0); -- "01" = cold, "10" = normal, "11" = hot
+
+    -- Outputs
+    red : out std_logic;    -- if temp is hot
+    green : out std_logic;  -- if temp is normal
+    blue : out std_logic; -- if temp is cold
+    white : out std_logic -- if temp is idle
+    ); -- "01" = cold, "10" = normal, "11" = hot
 END FSM_Temp;
 
 ARCHITECTURE behavioral OF FSM_Temp IS
@@ -28,66 +32,81 @@ BEGIN
   END PROCESS;
 
   -- FSM transition logic
-  PROCESS (current_state, temp_hot, temp_cold, temp_normal)
+  PROCESS (current_state, temp)
   BEGIN
     CASE current_state IS
       WHEN ST0 => -- State Idle
-        IF (temp_hot = '1') THEN
+        IF (temp = "11") THEN    -- If temp is hot
           next_state <= ST3;
-        ELSIF (temp_cold = '1') THEN
+        ELSIF (temp = "01") THEN  -- If temp is cold
           next_state <= ST1;
-        ELSIF (temp_normal = '1') THEN
+        ELSIF (temp = "10") THEN  -- If temp is normal
           next_state <= ST2;
-        ELSE
+        ELSE                    -- If temp is idle
           next_state <= ST0;
         END IF;
 
       WHEN ST1 => -- State Cold
-        IF (temp_hot = '1') THEN
+        IF (temp = "11") THEN    -- If temp is hot
           next_state <= ST3;
-        ELSIF (temp_cold = '1') THEN
+        ELSIF (temp = "01") THEN  -- If temp is cold
           next_state <= ST1;
-        ELSIF (temp_normal = '1') THEN
+        ELSIF (temp = "10") THEN  -- If temp is normal
           next_state <= ST2;
-        ELSE
+        ELSE                    -- If temp is idle
           next_state <= ST0;
         END IF;
 
       WHEN ST2 => -- State Normal
-        IF (temp_hot = '1') THEN
+        IF (temp = "11") THEN    -- If temp is hot
           next_state <= ST3;
-        ELSIF (temp_cold = '1') THEN
+        ELSIF (temp = "01") THEN  -- If temp is cold
           next_state <= ST1;
-        ELSIF (temp_normal = '1') THEN
+        ELSIF (temp = "10") THEN  -- If temp is normal
           next_state <= ST2;
-        ELSE
+        ELSE                    -- If temp is idle
           next_state <= ST0;
         END IF;
 
       WHEN ST3 => -- State Hot
-        IF (temp_hot = '1') THEN
+        IF (temp = "11") THEN    -- If temp is hot
           next_state <= ST3;
-        ELSIF (temp_cold = '1') THEN
+        ELSIF (temp = "01") THEN  -- If temp is cold
           next_state <= ST1;
-        ELSIF (temp_normal = '1') THEN
+        ELSIF (temp = "10") THEN  -- If temp is normal
           next_state <= ST2;
-        ELSE
+        ELSE                    -- If temp is idle
           next_state <= ST0;
         END IF;
+
     END CASE;
+    
   END PROCESS;
 
   -- Output logic
-  output <= "00";
   PROCESS (current_state)
   BEGIN
     CASE current_state IS
       WHEN ST0 =>
-        output <= "00"; -- State Idle
+        white <= '1'; -- State Idle
+        blue <= '0';
+        green <= '0';
+        red <= '0';
       WHEN ST1 =>
-        output <= "01"; -- State Cold
+        blue <= '1'; -- State Cold
+        white <= '0';
+        green <= '0';
+        red <= '0';
       WHEN ST2 =>
-        output <= "10"; -- State Normal
+        green <= '1'; -- State Normal
+        white <= '0';
+        blue <= '0';
+        red <= '0';
       WHEN ST3 =>
-        output <= "11"; -- State Hot
+        red <= '1'; -- State Hot
+        white <= '0';
+        blue <= '0';
+        green <= '0';
+      end CASE;
+  END PROCESS;
 END behavioral;
