@@ -1,9 +1,88 @@
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd failed with 1 errors.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 1 failed with 1 error.
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd was successful.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.fsm_temp
+# vsim -gui work.fsm_temp 
+# Start time: 21:08:51 on Dec 09,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.fsm_temp(behavioral)
+add wave -position insertpoint sim:/fsm_temp/*
+force -freeze sim:/fsm_temp/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/fsm_temp/reset 0 0
+force -freeze sim:/fsm_temp/temp 00 0
+run
+run
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
 # Compile of master_faucet.vhd failed with 5 errors.
-# Compile of master_faucet.vhd failed with 4 errors.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 1 failed with 5 errors.
+vsim -gui work.fsm_temp
+# End time: 21:25:29 on Dec 09,2022, Elapsed time: 0:16:38
+# Errors: 0, Warnings: 5
+# vsim -gui work.fsm_temp 
+# Start time: 21:25:29 on Dec 09,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.fsm_temp(behavioral)
+add wave -position insertpoint sim:/fsm_temp/*
+force -freeze sim:/fsm_temp/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/fsm_temp/reset 1 0
+force -freeze sim:/fsm_temp/temp 01 0
+run
+run
+run
+run
+force -freeze sim:/fsm_temp/reset 0 0
+run
+run
+force -freeze sim:/fsm_temp/temp 11 0
+run
+force -freeze sim:/fsm_temp/temp 10 0
+run
+run
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd failed with 5 errors.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 1 failed with 5 errors.
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
 # Compile of master_faucet.vhd was successful.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd was successful.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd was successful.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 0 failed with no errors.
 vsim -gui work.master_faucet
+# End time: 21:35:08 on Dec 09,2022, Elapsed time: 0:09:39
+# Errors: 0, Warnings: 5
 # vsim -gui work.master_faucet 
-# Start time: 22:36:16 on Dec 08,2022
+# Start time: 21:35:08 on Dec 09,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -13,120 +92,7 @@ vsim -gui work.master_faucet
 # Loading work.timer(rtl)
 # Loading work.bcdconverter(converter)
 # Loading work.bcdtosevseg(rtl)
-add wave -position insertpoint sim:/master_faucet/*
-force -freeze sim:/master_faucet/clock 1 0, 0 {50 ps} -r 100
-force -freeze sim:/master_faucet/switchMaster 0 0
-force -freeze sim:/master_faucet/handSensor 0 0
-force -freeze sim:/master_faucet/suhu 01 0
-run
-# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 0  Instance: /master_faucet/Converter
-run
-force -freeze sim:/master_faucet/switchMaster 1 0
-force -freeze sim:/master_faucet/handSensor 1 0
-run
-run
-run
-force -freeze sim:/master_faucet/suhu 11 0
-# Compile of master_faucet.vhd was successful.
-# Compile of master_faucet.vhd was successful.
-run
-run
-run
-run
-force -freeze sim:/master_faucet/suhu 00 0
-run
-run
-force -freeze sim:/master_faucet/suhu 10 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# Compile of master_faucet.vhd was successful.
-vsim -gui work.master_faucet
-# End time: 22:56:55 on Dec 08,2022, Elapsed time: 0:20:39
-# Errors: 0, Warnings: 8
-# vsim -gui work.master_faucet 
-# Start time: 22:56:55 on Dec 08,2022
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.math_real(body)
-# Loading work.master_faucet(rtl)
-# Loading work.timer(rtl)
-# Loading work.bcdconverter(converter)
-# Loading work.bcdtosevseg(rtl)
+# Loading work.fsm_temp(behavioral)
 add wave -position insertpoint sim:/master_faucet/*
 force -freeze sim:/master_faucet/switchMaster 0 0
 force -freeze sim:/master_faucet/handSensor 0 0
@@ -136,93 +102,23 @@ run
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /master_faucet/Converter
 run
-force -freeze sim:/master_faucet/switchMaster 1 0
-run
-run
-force -freeze sim:/master_faucet/switchMaster 0 0
-force -freeze sim:/master_faucet/handSensor 1 0
-run
-run
-force -freeze sim:/master_faucet/switchMaster 1 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
+# Compile of timer.vhd was successful.
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd failed with 2 errors.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 1 failed with 2 errors.
 # Compile of timer.vhd was successful.
 # Compile of BCDConverter.vhd was successful.
 # Compile of BCDtoSevseg.vhd was successful.
 # Compile of master_faucet.vhd was successful.
-# 4 compiles, 0 failed with no errors.
-vsim -gui work.timer
-# End time: 23:02:51 on Dec 08,2022, Elapsed time: 0:05:56
-# Errors: 0, Warnings: 3
-# vsim -gui work.timer 
-# Start time: 23:02:51 on Dec 08,2022
-# Loading std.standard
-# Loading std.textio(body)
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.numeric_std(body)
-# Loading ieee.math_real(body)
-# Loading work.timer(rtl)
-add wave -position insertpoint sim:/timer/*
-force -freeze sim:/timer/clk 1 0, 0 {50 ps} -r 100
-force -freeze sim:/timer/switch 1 0
-force -freeze sim:/timer/sensor 1 0
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# Compile of timer.vhd was successful.
-# Compile of BCDConverter.vhd was successful.
-# Compile of BCDtoSevseg.vhd was successful.
-# Compile of master_faucet.vhd was successful.
-# 4 compiles, 0 failed with no errors.
+# Compile of FSM_Temp.vhd was successful.
+# 5 compiles, 0 failed with no errors.
 vsim -gui work.master_faucet
-# End time: 23:07:14 on Dec 08,2022, Elapsed time: 0:04:23
-# Errors: 0, Warnings: 2
+# End time: 21:44:07 on Dec 09,2022, Elapsed time: 0:08:59
+# Errors: 0, Warnings: 4
 # vsim -gui work.master_faucet 
-# Start time: 23:07:14 on Dec 08,2022
+# Start time: 21:44:07 on Dec 09,2022
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -232,70 +128,20 @@ vsim -gui work.master_faucet
 # Loading work.timer(rtl)
 # Loading work.bcdconverter(converter)
 # Loading work.bcdtosevseg(rtl)
+# Loading work.fsm_temp(behavioral)
 add wave -position insertpoint sim:/master_faucet/*
-force -freeze sim:/master_faucet/switchMaster 1 0
+force -freeze sim:/master_faucet/handSensor 0 0
+force -freeze sim:/master_faucet/switchMaster 0 0
+force -freeze sim:/master_faucet/suhu 00 0
 force -freeze sim:/master_faucet/clock 1 0, 0 {50 ps} -r 100
-force -freeze sim:/master_faucet/suhu 11 0
-force -freeze sim:/master_faucet/handSensor 1 0
 run
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 0  Instance: /master_faucet/Converter
 run
+force -freeze sim:/master_faucet/suhu 11 0
+force -freeze sim:/master_faucet/switchMaster 1 0
 run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
+force -freeze sim:/master_faucet/handSensor 1 0
 run
 run
 run
