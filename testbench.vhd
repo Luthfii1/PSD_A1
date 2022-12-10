@@ -52,7 +52,7 @@
         signal SSD_MMSD : std_logic_vector(6 downto 0);
         signal SSD_Timer : std_logic_vector(6 downto 0);
         type outp_bench_sevseg is array (0 to 10) of std_logic_vector(6 downto 0);
-    
+        signal trycatch : integer := 0;
     begin
     
         
@@ -82,58 +82,89 @@
     
             
         begin
-            -- test case 1
+            
+            -- test case 0
             wait for pause;
             handSensor <= '0';
             suhu <= "00";
             switchMaster <= '0';
             assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(0) and LED_Red = '0' and LED_Green = '0' and LED_Blue = '0' and LED_White = '1' and water = '0')
-                    report "Netnot pada input ke-" & integer'image(0)
+                    report "Netnot pada input ke-" & integer'image(trycatch)
                     severity Warning;
     
-            -- test case 2 (suhu dingin dan timer dari 7 ke 0)
+            
+            -- test case 1 (suhu dingin dan timer mulai dari7)
+            wait for pause;
             handSensor <= '1';
             suhu <= "01";
             switchMaster <= '1';
-            for i in 7 downto 0 loop
-                wait for pause;
-                assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(i) and LED_Red = '0' and LED_Green = '0' and LED_Blue = '1' and LED_White = '0' and water = '1')
-                        report "Netnot pada time ke-" & integer'image(0)
-                        severity Warning;
-            end loop;
-    
-            -- test case 3 (suhu panas dan timer terset dan counter + 1)
+            trycatch <=  trycatch + 1;
+            assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(7) and LED_Red = '0' and LED_Green = '0' and LED_Blue = '1' and LED_White = '0' and water = '1')
+                    report "Netnot pada input ke-" & integer'image(trycatch)
+                    severity Warning;
+
+            -- test case 2 (suhu normal, timer ke 6)
+            wait for pause;
+            suhu <= "10";
+            trycatch <=  trycatch + 1;
+            assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(6) and LED_Red = '0' and LED_Green = '1' and LED_Blue = '0' and LED_White = '0' and water = '1')
+                    report "Netnot pada input ke-" & integer'image(trycatch)
+                    severity Warning;
+
+            -- test case 3 (suhu panas, timer ke 5)
+            wait for pause;
             suhu <= "11";
-            wait for pause;
-                assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(1) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(7) and LED_Red = '1' and LED_Green = '0' and LED_Blue = '0' and LED_White = '0' and water = '1')
-                        report "Netnot pada time ke-" & integer'image(0)
-                        severity Warning;
-    
-            -- test case 4 (suhu normal dan timer terset dari 6 ke 0)
-            suhu <= "10";
-            for i in 6 downto 0 loop
-                wait for pause;
-                assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(1) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(i) and LED_Red = '0' and LED_Green = '1' and LED_Blue = '0' and LED_White = '0' and water = '1')
-                        report "Netnot pada time ke-" & integer'image(0)
-                        severity Warning;
-            end loop;
-    
-            -- test case 5 (suhu dingin dan timer tereset dan counter + 1)
-            suhu <= "01";
-            wait for pause;
-                assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(2) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(7) and LED_Red = '1' and LED_Green = '0' and LED_Blue = '1' and LED_White = '0' and water = '1')
-                        report "Netnot pada time ke-" & integer'image(0)
-                        severity Warning;
-    
-            -- test case 6 (suhu normal dan timer terset dari 6 ke 0)
-            suhu <= "10";
-            for i in 6 downto 0 loop
-                wait for pause;
-                assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(2) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(i) and LED_Red = '0' and LED_Green = '1' and LED_Blue = '0' and LED_White = '0' and water = '1')
-                        report "Netnot pada time ke-" & integer'image(0)
-                        severity Warning;
-            end loop;
+            trycatch <=  trycatch + 1;
+            assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(5) and LED_Red = '1' and LED_Green = '0' and LED_Blue = '0' and LED_White = '0' and water = '1')
+                    report "Netnot pada input ke-" & integer'image(trycatch)
+                    severity Warning;
+            
             wait;
+
+
+
+            -- for i in 7 downto 0 loop
+            --     trycatch <=  trycatch + 1;
+            --     wait for pause;
+            --     assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(i) and LED_Red = '0' and LED_Green = '0' and LED_Blue = '1' and LED_White = '0' and water = '1')
+            --             report "Netnot pada time ke-" & integer'image(trycatch)
+            --             severity Warning;
+            -- end loop;
+    
+            -- trycatch <=  trycatch + 1;
+            -- -- test case 3 (suhu panas dan timer terset dan counter + 1)
+            -- suhu <= "11";
+            -- wait for pause;
+            --     assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(1) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(7) and LED_Red = '1' and LED_Green = '0' and LED_Blue = '0' and LED_White = '0' and water = '1')
+            --             report "Netnot pada time ke-" & integer'image(trycatch)
+            --             severity Warning;
+    
+            -- -- test case 4 (suhu normal dan timer terset dari 6 ke 0)
+            -- suhu <= "10";
+            -- for i in 6 downto 0 loop
+            --     trycatch <=  trycatch + 1;
+            --     wait for pause;
+            --     assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(1) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(i) and LED_Red = '0' and LED_Green = '1' and LED_Blue = '0' and LED_White = '0' and water = '1')
+            --             report "Netnot pada time ke-" & integer'image(trycatch)
+            --             severity Warning;
+            -- end loop;
+    
+            -- -- test case 5 (suhu dingin dan timer tereset dan counter + 1)
+            -- suhu <= "01";
+            -- wait for pause;
+            --     assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(2) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(7) and LED_Red = '1' and LED_Green = '0' and LED_Blue = '1' and LED_White = '0' and water = '1')
+            --             report "Netnot pada time ke-" & integer'image(0)
+            --             severity Warning;
+    
+            -- -- test case 6 (suhu normal dan timer terset dari 6 ke 0)
+            -- suhu <= "10";
+            -- for i in 6 downto 0 loop
+            --     wait for pause;
+            --     assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(2) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(i) and LED_Red = '0' and LED_Green = '1' and LED_Blue = '0' and LED_White = '0' and water = '1')
+            --             report "Netnot pada time ke-" & integer'image(0)
+            --             severity Warning;
+            -- end loop;
+            -- wait;
         end process;
     
     end architecture;

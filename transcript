@@ -41,3 +41,103 @@ run
 run
 add wave -position insertpoint sim:/math_real/*
 # ** UI-Msg: (vish-4014) No objects found matching '/math_real/*'.
+# Compile of master_faucet.vhd was successful.
+# Compile of testbench.vhd was successful.
+vsim -gui work.testbench
+# End time: 22:06:23 on Dec 10,2022, Elapsed time: 0:12:18
+# Errors: 0, Warnings: 8
+# vsim -gui work.testbench 
+# Start time: 22:06:23 on Dec 10,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.testbench(finaltb)
+# Loading work.master_faucet(rtl)
+# Loading work.timer(rtl)
+# Loading work.bcdconverter(converter)
+# Loading work.bcdtosevseg(rtl)
+add wave -position insertpoint sim:/testbench/*
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/UUT/Converter
+# ** Warning: Netnot pada time ke-1
+#    Time: 200 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-2
+#    Time: 300 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-3
+#    Time: 400 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-4
+#    Time: 500 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-5
+#    Time: 600 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-6
+#    Time: 700 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-7
+#    Time: 800 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-8
+#    Time: 900 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-9
+#    Time: 1 us  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-10
+#    Time: 1100 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-11
+#    Time: 1200 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-12
+#    Time: 1300 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-13
+#    Time: 1400 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-14
+#    Time: 1500 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-15
+#    Time: 1600 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-16
+#    Time: 1700 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 1800 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 1900 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 2 us  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 2100 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 2200 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 2300 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 2400 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada time ke-0
+#    Time: 2500 ns  Iteration: 0  Instance: /testbench
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of timer.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.testbench
+# End time: 22:13:33 on Dec 10,2022, Elapsed time: 0:07:10
+# Errors: 0, Warnings: 27
+# vsim -gui work.testbench 
+# Start time: 22:13:34 on Dec 10,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.testbench(finaltb)
+# Loading work.master_faucet(rtl)
+# Loading work.timer(rtl)
+# Loading work.bcdconverter(converter)
+# Loading work.bcdtosevseg(rtl)
+add wave -position insertpoint sim:/testbench/*
+run -all
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /testbench/UUT/Converter
+# ** Warning: Netnot pada input ke-0
+#    Time: 200 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada input ke-1
+#    Time: 300 ns  Iteration: 0  Instance: /testbench
+# ** Warning: Netnot pada input ke-2
+#    Time: 400 ns  Iteration: 0  Instance: /testbench
