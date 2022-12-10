@@ -14,7 +14,7 @@ entity master_faucet is
     port (
         -- Input
         handSensor : in std_logic;                  -- Sensor input to detect hands or object
-        suhu : in std_logic_vector(1 downto 0);     -- Temperature input to set the temperature
+        suhu : in std_logic_vector(1 downto 0);     -- Temperature input to set the temperature 00 = idle, 01 = cold, 10 = normal, 11 = hot
         switchMaster : in std_logic;                -- Switch input to turn on or off the faucet
         clock : in std_logic;                       -- Clock input to count the time
 
@@ -24,9 +24,9 @@ entity master_faucet is
         LED_Blue : out std_logic;                       -- LED blue to show the water is cold
         LED_White : out std_logic;                      -- LED white to show the water is off
         water : out std_logic;                          -- Output as water flow
-        SSD_MSD : out std_logic_vector(bit_SSD-1 downto 0);     -- SSD to show the number of hundred times
-        SSD_LSD : out std_logic_vector(bit_SSD-1 downto 0);     -- SSD to show the number of one times
+        SSD_MSD : out std_logic_vector(bit_SSD-1 downto 0);     -- SSD to show the number of hundred times 
         SSD_MMSD : out std_logic_vector(bit_SSD-1 downto 0);    -- SSD to show the number of ten times
+        SSD_LSD : out std_logic_vector(bit_SSD-1 downto 0);     -- SSD to show the number of one times 
         SSD_Timer : out std_logic_vector(bit_SSD-1 downto 0)    -- SSD to show the number of timer
     );
 end entity;
@@ -68,21 +68,6 @@ architecture rtl of master_faucet is
         );
     end component;
 
-    -- Component declaration of the FSM for LED
-    component FSM_Temp is
-        port (
-            clk : IN STD_LOGIC;
-            reset : IN STD_LOGIC;
-            temp : in std_logic_vector(1 downto 0); -- "01" = cold, "10" = normal, "11" = hot
-
-            -- Outputs
-            red : out std_logic;    -- if temp is hot
-            green : out std_logic;  -- if temp is normal
-            blue : out std_logic; -- if temp is cold
-            white : out std_logic -- if temp is idle
-        );
-    end component;
-
     -- Signal declaration
     signal timer_temp : std_logic_vector(3 downto 0);     -- timer signal to store the value of timer
     signal counter_temp : std_logic_vector(7 downto 0);   -- counter signal to store the value of counter
@@ -90,6 +75,9 @@ architecture rtl of master_faucet is
     signal LSD_temp : std_logic_vector(3 downto 0);       -- LSD signal to store the value of least significant digit
     signal MMSD_temp : std_logic_vector(3 downto 0);      -- MMSD signal to store the value of middle most significant digit
     signal reset : std_logic := '0';                      -- reset signal to reset the counter
+    -- IDLE = State Idle; COLD = State Cold; NORMAL = State Normal; HOT = State Hot
+    TYPE state_type IS (IDLE, COLD, NORMAL, HOT);
+    SIGNAL current_state, next_state : state_type;
 begin
 
     -- port mapping of timer
@@ -140,16 +128,93 @@ begin
         end if;
     end process;
 
-    -- port mapping of the FSM for Temperature
-    FSM_Temperature : FSM_Temp port map (
-        clk => clock,
-        reset => reset,
-        temp => suhu,
-        red => LED_Red,
-        green => LED_Green,
-        blue => LED_Blue,
-        white => LED_White
-    );
+     -- The FSM State Transitions
+    PROCESS (clock, reset)
+    BEGIN
+        IF (reset = '1') THEN
+        current_state <= IDLE;
+        ELSIF (clock'event AND clock = '1') THEN
+        current_state <= next_state;
+        END IF;
+    END PROCESS;
+
+    -- FSM transition logic
+    PROCESS (current_state, suhu)
+    BEGIN
+        CASE current_state IS
+        WHEN IDLE => -- State Idle
+            IF (suhu = "11") THEN    -- If suhu is hot
+            next_state <= HOT;
+            ELSIF (suhu = "01") THEN  -- If suhu is cold
+            next_state <= COLD;
+            ELSIF (suhu = "10") THEN  -- If suhu is normal
+            next_state <= NORMAL;
+            ELSE                    -- If suhu is idle
+            next_state <= IDLE;
+            END IF;
+
+        WHEN COLD => -- State Cold
+            IF (suhu = "11") THEN    -- If suhu is hot
+            next_state <= HOT;
+            ELSIF (suhu = "01") THEN  -- If suhu is cold
+            next_state <= COLD;
+            ELSIF (suhu = "10") THEN  -- If suhu is normal
+            next_state <= NORMAL;
+            ELSE                    -- If suhu is idle
+            next_state <= IDLE;
+            END IF;
+
+        WHEN NORMAL => -- State Normal
+            IF (suhu = "11") THEN    -- If suhu is hot
+            next_state <= HOT;
+            ELSIF (suhu = "01") THEN  -- If suhu is cold
+            next_state <= COLD;
+            ELSIF (suhu = "10") THEN  -- If suhu is normal
+            next_state <= NORMAL;
+            ELSE                    -- If suhu is idle
+            next_state <= IDLE;
+            END IF;
+
+        WHEN HOT => -- State Hot
+            IF (suhu = "11") THEN    -- If suhu is hot
+            next_state <= HOT;
+            ELSIF (suhu = "01") THEN  -- If suhu is cold
+            next_state <= COLD;
+            ELSIF (suhu = "10") THEN  -- If suhu is normal
+            next_state <= NORMAL;
+            ELSE                    -- If suhu is idle
+            next_state <= IDLE;
+            END IF;
+
+        END CASE;
+    END PROCESS;
+
+    -- Output logic
+    PROCESS (current_state)
+    BEGIN
+        CASE current_state IS
+        WHEN IDLE =>
+            LED_White <= '1'; -- State Idle
+            LED_Blue <= '0';
+            LED_Green <= '0';
+            LED_Red <= '0';
+        WHEN COLD =>
+            LED_Blue <= '1'; -- State Cold
+            LED_White <= '0';
+            LED_Green <= '0';
+            LED_Red <= '0';
+        WHEN NORMAL =>
+            LED_Green <= '1'; -- State Normal
+            LED_White <= '0';
+            LED_Blue <= '0';
+            LED_Red <= '0';
+        WHEN HOT =>
+            LED_Red <= '1'; -- State Hot
+            LED_White <= '0';
+            LED_Blue <= '0';
+            LED_Green <= '0';
+        end CASE;
+    END PROCESS;
 
     -- Set water flow
     my_timer : process (handSensor, switchMaster, clock)

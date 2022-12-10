@@ -1,12 +1,4 @@
-{C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/FSM_Temp.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/FSM_Temp.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity FSM_Temp
--- Compiling architecture behavioral of FSM_Temp
-
-} {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd}
+{C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/master_faucet.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -15,6 +7,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package MATH_REAL
 -- Compiling entity master_faucet
 -- Compiling architecture rtl of master_faucet
+
+} {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/FSM_Temp.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/FSM_Temp.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity FSM_Temp
+-- Compiling architecture behavioral of FSM_Temp
 
 } {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/testbench.vhd} {2 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/testbench.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -50,15 +50,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 ** Warning: C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/testbench.vhd(131): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 8 is not equal to right length 7).
 ** Warning: C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/testbench.vhd(131): (vcom-1083) Implicit array operator "=" always returns FALSE (left length 8 is not equal to right length 7).
 
-} {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd}
+} {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Loading package MATH_REAL
--- Compiling entity timer
--- Compiling architecture rtl of timer
+-- Compiling entity BCDtoSevseg
+-- Compiling architecture rtl of BCDtoSevseg
 
 } {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDConverter.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDConverter.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -70,12 +68,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity BCDConverter
 -- Compiling architecture Converter of BCDConverter
 
-} {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/BCDtoSevseg.vhd}
+} {} {}} {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/luthf/Documents/Luthfi/Kuliah UI/Semesteran/Semester 3/PSD/Praktikum/Project Akhir/Fix Git/PSD_A1/timer.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity BCDtoSevseg
--- Compiling architecture rtl of BCDtoSevseg
+-- Loading package NUMERIC_STD
+-- Loading package MATH_REAL
+-- Compiling entity timer
+-- Compiling architecture rtl of timer
 
 } {} {}}
