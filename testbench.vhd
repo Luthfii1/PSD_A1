@@ -41,7 +41,6 @@
         signal handSensor : std_logic := '0';
         signal suhu : std_logic_vector(1 downto 0) := "00";
         signal switchMaster : std_logic := '0';
-        signal clock : std_logic := '0';
         signal LED_Red : std_logic;
         signal LED_Green : std_logic;
         signal LED_Blue : std_logic;
@@ -53,6 +52,8 @@
         signal SSD_Timer : std_logic_vector(6 downto 0);
         type outp_bench_sevseg is array (0 to 10) of std_logic_vector(6 downto 0);
         signal trycatch : integer := 0;
+        signal clk    : std_logic;
+        constant clk_period : time := 100 ps;
     begin
     
         
@@ -61,7 +62,7 @@
             handSensor => handSensor,
             suhu => suhu,
             switchMaster => switchMaster,
-            clock => clock,
+            clock => clk,
             LED_Red => LED_Red,
             LED_Green => LED_Green,
             LED_Blue => LED_Blue,
@@ -73,18 +74,25 @@
             SSD_Timer => SSD_Timer
         );
     
+        -- Clock process
+        CLOCK: process
+        begin
+            clk <= '0';
+            wait for clk_period / 2;
+            clk <= '1';
+            wait for clk_period / 2;
+        end process CLOCK;
+
+
         tb_try : process
-            constant pause : time := 100 ns;
             constant benchSSD : outp_bench_sevseg := (
                 "1111110", "0110000", "1101101", "1111001", "0110011", 
                 "1011011", "1011111", "1110000", "1111111", "1111011", "0000000"
             );
-    
-            
         begin
             
             -- test case 0
-            wait for pause;
+            wait for clk_period;
             handSensor <= '0';
             suhu <= "00";
             switchMaster <= '0';
@@ -94,7 +102,7 @@
     
             
             -- test case 1 (suhu dingin dan timer mulai dari7)
-            wait for pause;
+            wait for clk_period;
             handSensor <= '1';
             suhu <= "01";
             switchMaster <= '1';
@@ -104,7 +112,7 @@
                     severity Warning;
 
             -- test case 2 (suhu normal, timer ke 6)
-            wait for pause;
+            wait for clk_period;
             suhu <= "10";
             trycatch <=  trycatch + 1;
             assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(6) and LED_Red = '0' and LED_Green = '1' and LED_Blue = '0' and LED_White = '0' and water = '1')
@@ -112,20 +120,18 @@
                     severity Warning;
 
             -- test case 3 (suhu panas, timer ke 5)
-            wait for pause;
+            wait for clk_period;
             suhu <= "11";
             trycatch <=  trycatch + 1;
             assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(5) and LED_Red = '1' and LED_Green = '0' and LED_Blue = '0' and LED_White = '0' and water = '1')
                     report "Netnot pada input ke-" & integer'image(trycatch)
                     severity Warning;
             
-            wait;
-
-
+            WAIT;
 
             -- for i in 7 downto 0 loop
             --     trycatch <=  trycatch + 1;
-            --     wait for pause;
+            --     wait for clk_period;
             --     assert (SSD_MSD = benchSSD(0) and SSD_LSD = benchSSD(0) and SSD_MMSD = benchSSD(0) and SSD_Timer = benchSSD(i) and LED_Red = '0' and LED_Green = '0' and LED_Blue = '1' and LED_White = '0' and water = '1')
             --             report "Netnot pada time ke-" & integer'image(trycatch)
             --             severity Warning;
