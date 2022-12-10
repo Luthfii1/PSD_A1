@@ -1,0 +1,43 @@
+# Compile of BCDConverter.vhd was successful.
+# Compile of BCDtoSevseg.vhd was successful.
+# Compile of master_faucet.vhd was successful.
+# Compile of testbench.vhd was successful.
+# Compile of timer.vhd was successful.
+# 5 compiles, 0 failed with no errors.
+vsim -gui work.master_faucet
+# vsim -gui work.master_faucet 
+# Start time: 21:54:05 on Dec 10,2022
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Loading work.master_faucet(rtl)
+# Loading work.timer(rtl)
+# Loading work.bcdconverter(converter)
+# Loading work.bcdtosevseg(rtl)
+add wave -position insertpoint sim:/math_real/*
+# ** UI-Msg: (vish-4014) No objects found matching '/math_real/*'.
+add wave -position insertpoint sim:/master_faucet/*
+force -freeze sim:/master_faucet/handSensor 0 0
+force -freeze sim:/master_faucet/suhu 00 0
+force -freeze sim:/master_faucet/switchMaster 0 0
+force -freeze sim:/master_faucet/clock 1 0, 0 {50 ps} -r 100
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /master_faucet/Converter
+force -freeze sim:/master_faucet/switchMaster 1 0
+force -freeze sim:/master_faucet/handSensor 1 0
+run
+force -freeze sim:/master_faucet/suhu 11 0
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave -position insertpoint sim:/math_real/*
+# ** UI-Msg: (vish-4014) No objects found matching '/math_real/*'.
