@@ -25,3 +25,6 @@ Our project uses input in 2-bit (temperature for finite state machine) to determ
 - Continue to wash hands (8 seconds)
 - Step out from the water dispenser
 - Dry hands and exit the system
+
+## Video Presentasi Proyek Akhir
+https://youtu.be/-HLDXsXVzCk
